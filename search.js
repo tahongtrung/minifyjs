@@ -108,12 +108,18 @@ $(document).ready(function () {
                         $('#summary_tb tbody tr#'+id+" td.sum_sl").text(qty);
 
                         var sum = 0;
-                        $('.sum_tien').each(function() {
-                            sum+=Number($(this).text().replace(/\./g,""))
-                        });
+						if ($(".sum_tien").length>0){
+							$('.sum_tien').each(function() {
+								sum+=Number($(this).text().replace(/\./g,""))
+							});
+						}
                         $('#sum_money').val(vMonney(sum));
-                        var ship = Number($('#iship').val().replace(/\./g,""));
-                        $('#last_money').val(vMonney(sum+ship));
+						if ($("#iship").length>0){
+							var ship = Number($('#iship').val().replace(/\./g,""));
+						}
+						if ($("#last_money").length>0){
+							$('#last_money').val(vMonney(sum+ship));
+						}
                     }else{
                         console.log('reached limit');
                         //alert('Vượt quá số lượng tồn!');
@@ -194,12 +200,20 @@ $(document).ready(function () {
                     }
                     /*sum money*/
                     var sum = 0;
-                    $('.sum_tien').each(function() {
-                        sum+=Number($(this).text().replace(/\./g,""))
-                    });
-                    $('#sum_money').val(vMonney(sum));
-                    var ship = Number($('#iship').val().replace(/\./g,""));
-                    $('#last_money').val(vMonney(sum+ship));
+					if ($(".sum_tien").length>0){
+						$('.sum_tien').each(function() {
+							sum+=Number($(this).text().replace(/\./g,""))
+						});
+					}
+					if ($("#sum_money").length>0){
+						$('#sum_money').val(vMonney(sum));
+					}
+					if ($("#iship").length>0){
+						var ship = Number($('#iship').val().replace(/\./g,""));
+					}
+					if ($("#last_money").length>0){
+						$('#last_money').val(vMonney(sum+ship));
+					}
                 }
                 
             });

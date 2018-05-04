@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 
 gulp.task('scripts', function(){
     gulp.src([
+		//'bootstrap-datetimepicker.min.js',
         'order.js', 
         'customer.js', 
         'search.js'
@@ -14,7 +15,7 @@ gulp.task('scripts', function(){
     .pipe(uglify().on('error', function(e){
             console.log(e);
     }))
-    .pipe(gulp.dest('build/'))
+    .pipe(gulp.dest('D:/nhathuoc/public/js'))
 });
 
 gulp.task('default', [ 'scripts' ]);
